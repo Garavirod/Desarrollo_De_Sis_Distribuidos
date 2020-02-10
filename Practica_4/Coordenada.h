@@ -9,6 +9,5 @@ public:
     Coordenada(double = 0, double = 0);
     double obtenerX();
     double obtenerY();
-    ~Coordenada();
 };
 #endif

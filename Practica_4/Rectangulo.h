@@ -11,9 +11,10 @@ private:
 public:
     Rectangulo(/* args */);
     Rectangulo(double xSupIzq, double ySupIzq, double xInfDer, double yInfDer);
+    Rectangulo(Coordenada c1, Coordenada c2);
     void imprimeEsq();
+    double obtenArea();
     Coordenada obtieneSupIzq();
     Coordenada obtieneInfDer();
-    ~Rectangulo();
 };
 #endif
