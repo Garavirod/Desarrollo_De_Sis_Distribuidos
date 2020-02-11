@@ -24,7 +24,6 @@ void Rectangulo::imprimeEsq()
 }
 double Rectangulo::obtenArea()
 {
-
     double ancho, alto;
     alto = obtieneSupIzq().obtenerY() - obtieneInfDer().obtenerY();
     ancho = obtieneInfDer().obtenerX() - obtieneSupIzq().obtenerX();

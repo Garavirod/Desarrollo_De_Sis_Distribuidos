@@ -9,8 +9,7 @@ double Coordenada::obtenerX(){
     return (this->x * cos(this->y * M_PI / 180));
     // return this->x;
 }
-double Coordenada::obtenerY(){
-    
+double Coordenada::obtenerY(){    
 	return this->x * sin(this->y * M_PI / 180);
     // return this->y;
 }

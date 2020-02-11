@@ -1,0 +1,6 @@
+¿Cómo se define un sistema distribuido?
+
+A. Como aquel en el que los componentes de hardware o software ubicados en computadoras en red se comunican y coordinan sus acciones solo pasando mensajes. 
+B. Aquél sistema en donde las aplicaciones se modlarizan separandose en muchos archivos
+C. Aquél donde el siemta esta segmentado en varios componentes.
+D. Un sistema donde cada componente esta separado en un equipo hardawre distino.
