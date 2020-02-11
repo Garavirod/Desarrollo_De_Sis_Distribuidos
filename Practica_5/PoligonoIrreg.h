@@ -14,6 +14,7 @@ public:
     void anadeVertice(Coordenada c);
     void imprimeVertice();
     void anadeVerticesReserve(int);
+    void anadeVerticesPush(int);
     static int cuentaVertices;
 
 };

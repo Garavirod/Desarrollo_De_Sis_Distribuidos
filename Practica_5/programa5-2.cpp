@@ -21,8 +21,8 @@ int main(int argc, char const *argv[])
     p1.imprimeVertice();
 
     // Ejercico 3
+    cout<<"Var estática >: "<<PoligonoIrreg::cuentaVertices<<endl;
 
-    
 
 
     return 0;

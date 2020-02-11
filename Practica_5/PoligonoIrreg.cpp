@@ -24,3 +24,12 @@ void PoligonoIrreg::anadeVerticesReserve(int cv){
 	}
 	cuentaVertices += cv;
 }
+
+void PoligonoIrreg::anadeVerticesPush(int cv)
+{
+	for (int i = 0; i < cv; i++)
+	{
+		this->vc.push_back(Coordenada(rand() % 100 / 10.0, rand() % 100 / 10.0));
+	}
+	cuentaVertices += cv;
+}
