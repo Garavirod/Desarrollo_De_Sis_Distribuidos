@@ -17,19 +17,18 @@ void PoligonoIrreg::imprimeVertice(){
 }
 
 void PoligonoIrreg::anadeVerticesReserve(int cv){
+	//  srand(time(NULL));
     this->vc.reserve(cv);
 	for (int i = 0; i < cv; i++)
-	{
-		this->vc[i] = Coordenada(rand() % 100 / 10.0, rand() % 100 / 10.0);
-	}
-	cuentaVertices += cv;
+		this->vc[i] = Coordenada(rand() % (101-1), rand() % (101-1));
+	this->cuentaVertices += cv;
 }
 
-void PoligonoIrreg::anadeVerticesPush(int cv)
-{
+void PoligonoIrreg::anadeVerticesPush(int cv){
+	//  srand(time(NULL));
 	for (int i = 0; i < cv; i++)
-	{
-		this->vc.push_back(Coordenada(rand() % 100 / 10.0, rand() % 100 / 10.0));
-	}
-	cuentaVertices += cv;
+		this->vc.push_back(Coordenada(rand() % (101-1), rand() % (101-1)));
+	this->cuentaVertices += cv;
 }
+
+int PoligonoIrreg::cuentaVertices = 0;
