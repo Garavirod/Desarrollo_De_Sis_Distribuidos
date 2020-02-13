@@ -14,9 +14,11 @@ int main(int argc, char const *argv[])
     pr.anadeVerticesPush(N);
     pr.imprimeVertice();
 
+
     // EJERCICIO 2
     cout<<endl;
     pr.ordenaA();
     pr.imprimeVertice();
+
     return 0;
 }
