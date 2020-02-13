@@ -19,12 +19,12 @@ int main(int argc, char const *argv[])
     // p1.anadeVertice(Coordenada(6,9));
     // p1.anadeVertice(Coordenada(7,7));
     // p1.anadeVertice(Coordenada(1,6));
-    // Imprimimos los vertices del poligono
+    // // Imprimimos los vertices del poligono
     // p1.imprimeVertice();
 
     
 
-    // EJERCICIO 3
+    // // EJERCICIO 3
     vector<PoligonoIrreg> p1;
     vector<PoligonoIrreg> p2;
 
