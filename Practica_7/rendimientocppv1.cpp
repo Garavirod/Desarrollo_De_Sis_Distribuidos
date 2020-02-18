@@ -23,8 +23,8 @@ int main(int argc, char const *argv[])
     int counter = 0;
     for(int i =0; i<N; i++){ 
         string q = generteWord();
-        cadenota += q;
-        cadenota += " "; 
+        // cadenota += q;
+        // cadenota += " "; 
         if(q.compare("IPN")==0)
             counter++;
     }
