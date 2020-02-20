@@ -1,0 +1,13 @@
+4.3.3 Referencias a Obj remotos- Fernando
+
+¿Qué pasa cuando un cliente invoca un metodo remoto de un objeto remoto?
+A. Se envía un mensaje de invocación al proceso del servidor que alberga el objeto remoto.
+B. No pasada nada.
+C. El objeto solamente realiza lo que el metodo dice.
+D. El servidor pide una conxión al cliente.
+
+¿Qué es una referencia a un objeto remoto?
+A. Es un identificador para un objeto remoto que es válida en el sistema distribuido.
+B. Es la cabecera que indica el inicio de un objeto remoto.
+C. El es cuerpo de un objeto remoto.
+D. Son todos los metodos de un objeto remoto.

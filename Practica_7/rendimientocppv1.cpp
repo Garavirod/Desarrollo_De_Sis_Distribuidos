@@ -1,11 +1,9 @@
-#include <iostream>
+#include<iostream>
 #include <string>
 #include <algorithm>
 using namespace std;
 #define N 100000
-
-string generteWord()
-{
+string generteWord(){
     string t = "";
     char w1 = (char)(65 + rand() % (91 - 65));
     char w2 = (char)(65 + rand() % (91 - 65));
@@ -13,7 +11,7 @@ string generteWord()
     t += w1;
     t += w2;
     t += w3;
-    return t;
+    return t; 
 }
 
 int getOcurrencias(string &cadenota)
@@ -32,10 +30,9 @@ int main(int argc, char const *argv[])
     // EJERCICO 3
     srand(time(NULL));
     string cadenota = "";
-
-    for(int i =0; i<N; i++){
+    for(int i =0; i<N; i++){ 
         cadenota += generteWord();
-        cadenota +=" ";
+        cadenota += " "; 
     }
     std::cout<<"Número de ocurrencias >: "<<getOcurrencias(cadenota)<<endl;
     

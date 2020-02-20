@@ -6,7 +6,7 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    // EJERCICO 1
+    //EJERRCICO 1
 
     // int n;
     // string line;
