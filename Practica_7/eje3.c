@@ -8,10 +8,12 @@ int main() {
     char * cad = NULL;
     int po = 4;
     char ipn [4] = "IPN";
-    int i = 0, j = 0, cont = 0;
+    long i = 0, j = 0, cont = 0;
     char * aux;
-    unsigned int n = 50000;
+    long n = 20000;
     srand(time(NULL));
+    FILE *fp;
+    fp = fopen ( "fichero1.txt", "w" );
     
     cadenota = malloc(sizeof(char) * 5);
     cadena = malloc(sizeof(char) * 5);
@@ -35,19 +37,31 @@ int main() {
 
         po = po + 4;
     }
-    puts(cadenota);
+    //puts(cadenota);
+    fputs(cadenota,fp);
 
-    for (i = 0; i < n; i++){
-        if(cadenota[i] == ipn[0])
+    long tam = strlen(cadenota);
+
+    //printf("\n%li",tam);
+    //cont=1;
+    for (i = 0; i < tam; i++){
+        if(cadenota[i++] == ipn[0])
         {
-            if(cadenota[i+1] == ipn[1])
+            if(cadenota[i++] == ipn[1])
             {
-                if(cadenota[i+2] == ipn[2])
-                    cont++;
+                if(cadenota[i++] == ipn[2])
+                    cont=cont+1;
             }
+            else
+                i=i+1;
         }
+        else
+            i=i+2;
     }
 
-    printf("El numero de coincidencias con la cadena %c%c%c: \t%d\n",ipn[0], ipn[1], ipn[2], cont);
+    //printf("\ni = %li, tam = %li",i,tam);
+    //puts(cadenota);
+    printf("\nEl numero de coincidencias con la cadena %c%c%c: \t%li\n",ipn[0], ipn[1], ipn[2], cont);
     free(cadenota);
+    fclose ( fp );
 }
