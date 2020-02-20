@@ -6,18 +6,18 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    //EJERRCICO 1
+    // EJERRCICO 1
 
-    // int n;
-    // string line;
-    // cin>>n;
-    // getline(cin,line);
+    int n;
+    string line;
+    cin>>n;
+    getline(cin,line);
 
 
     // EJERCICIO 2
 
-    // string cadena ("ESCOM");
-    // cout<<cadena.at(6)<<endl; 
+    string cadena ("ESCOM");
+    cout<<cadena.at(6)<<endl; 
 
    
     return 0;
