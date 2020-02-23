@@ -1,5 +1,16 @@
-A que se refiere RMI (Invocación de métodos remotos)
+¿Qué medios de comunicación entre procesos ofrece la API de Java?
+A. Datagramas y Streams.
+B. Uso de buffer automáticos.
+C. Envío por cola de mensaje o referencia.
+D. Medios orientados a mensajes.
 
+Patrones de comunicación mas utilizados en los sistemas distribuidos:
+A. Comunicación Cliente-Servidor y de grupo.
+B. Comunicación Peer to Peer (P2P)
+C. Comunicación Multicast
+D. Todas las anteriores
+
+A que se refiere RMI (Invocación de métodos remotos)
 A. Permite que un objeto invoque un mpetodo en otro objeto situado en un procedimeinto remoto.
 B. Un metodo que se ejcuta infinitamente en un servdior.
 C. Permite que los objetos sean invocados anónimamente.
