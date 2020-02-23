@@ -4,7 +4,6 @@ B. Aquél sistema en donde las aplicaciones se modularizan separandose en muchos
 C. Aquél donde el sistema esta segmentado en varios componentes.
 D. Un sistema donde cada componente esta separado en un equipo hardaware distino.
 
-Tema 1.
 Son características significativas de los sistemas distribuidos:
 A. Concurrencia de componentes, falta de un reloj global y fallas independientes de los componentes.
 B. Paralelismo en el funcionamiento de los componentes, reloj global y fallas que dependen de todos los componentes del sistema.
@@ -17,7 +16,6 @@ B. La necesidad de ofrecer servicios tecnológicos integrales.
 C. La irrupción de pantallas flexibles.
 D. Todas las anteriores.
 
-Tema 1.2 - Fernando 
 ¿Cuáles son algunos de los servicios cotidianos de la red?
 A. Todos los mencionados.
 B. Internet.

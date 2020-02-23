@@ -10,19 +10,17 @@ B. Comunicación Peer to Peer (P2P)
 C. Comunicación Multicast
 D. Todas las anteriores
 
-A que se refiere RMI (Invocación de métodos remotos)
+A Que se refiere RMI (Invocación de métodos remotos)
 A. Permite que un objeto invoque un mpetodo en otro objeto situado en un procedimeinto remoto.
 B. Un metodo que se ejcuta infinitamente en un servdior.
 C. Permite que los objetos sean invocados anónimamente.
 D. Permite que una función anónima se mande a llamar de manera polimorfica.
 
-Lectura 4.2 - Fernando 
 ¿A qué tipo de comunicación se refiere?: A cada envía se bloquea el emisor hasta que produce el correspondiente recibe y cuando se invoca un recibe, el proceso se bloquea hasta llegar el mensaje. 
 A. Sincrona bloqueante.
 B. Asincrona no bloqueante.
 C. Asincrona bloqueante.
 D. Sincrona no bloqueante.
-
 
 ¿DNS, sobre qué protocolo está implementado?
 A. UDP

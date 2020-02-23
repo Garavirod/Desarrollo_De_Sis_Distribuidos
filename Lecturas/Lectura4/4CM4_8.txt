@@ -1,17 +1,16 @@
-4.3
 Son llamadas así las variantes en la ordenación de enteros:
+
 A. little-endian y big-endian
 B. Bit más y menos significativo
 C. RISC y CISC
 D. Por valor y por referencia
 
 Se le llama así al estándar acordado para la representación de estructuras de datos y valores primitivos:
+
 A. Representación externa de datos.
 B. Representación interna de datos.
 C. Representación común de datos.
 D. Representación estructurada de los datos.
-
-4.3.1 Representacipon compun de datos de COBA
 
 ¿Quién genera las operaciones de empaquetado y desempaquetado par los argumentos
 y el resultado de los métodos remotos a partir de las definiciones de los tipos de 
@@ -21,9 +20,6 @@ A. Interfáz del compilador CORBA.
 B. Interprete de de c++.
 C. Máquina virtual de java.
 D. RMI.
-
-
-4.3.3 Referencias a Obj remotos- Fernando
 
 ¿Qué pasa cuando un cliente invoca un metodo remoto de un objeto remoto?
 
