@@ -1,12 +1,21 @@
 ¿Cómo se define un sistema distribuido?
-
 A. Como aquel en el que los componentes de hardware o software ubicados en computadoras en red se comunican y coordinan sus acciones solo pasando mensajes. 
-B. Aquél sistema en donde las aplicaciones se modlarizan separandose en muchos archivos
-C. Aquél donde el siemta esta segmentado en varios componentes.
-D. Un sistema donde cada componente esta separado en un equipo hardawre distino.
+B. Aquél sistema en donde las aplicaciones se modularizan separandose en muchos archivos
+C. Aquél donde el sistema esta segmentado en varios componentes.
+D. Un sistema donde cada componente esta separado en un equipo hardaware distino.
 
+Tema 1.
+Son características significativas de los sistemas distribuidos:
+A. Concurrencia de componentes, falta de un reloj global y fallas independientes de los componentes.
+B. Paralelismo en el funcionamiento de los componentes, reloj global y fallas que dependen de todos los componentes del sistema.
+C. Incompatibilidad entre los dispositivos conectados, independiente de redes como LAN, WAN, MAN, etc.
+D. No tiene tolerancia a fallos y no cuenta con transparencia.
 
-
+Tendencia que impulsan el uso de los sistemas distribuidos:
+A. La naturaleza dominante de las redes modernas y el surgimiento de la informática móvil.
+B. La necesidad de ofrecer servicios tecnológicos integrales.
+C. La irrupción de pantallas flexibles.
+D. Todas las anteriores.
 
 Tema 1.2 - Fernando 
 ¿Cuáles son algunos de los servicios cotidianos de la red?
