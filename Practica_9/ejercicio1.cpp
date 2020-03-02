@@ -66,7 +66,31 @@ int main(int argc, char const *argv[])
     }
     else if (atoi(argv[2]) == 3)
     {
-        
+        char buffer[BUFSIZ];
+        fp = fopen(argv[1], "w");
+        setbuf(fp, buffer);
+        for (int i = 0; i < N; i++)
+        {
+            string token = generteWord();
+            char c[token.size() + 1];
+            strcpy(c, token.c_str());
+            fputs(c, fp);
+            fputs(" ", fp);
+        }
+        fflush(fp);
     }
+
+    /*
+    
+        fflush()funciona FILE*, simplemente vacía los búferes internos FILE*de su aplicación al sistema operativo.
+
+        fsync funciona en un nivel inferior, le dice al sistema operativo que vacíe sus memorias intermedias a los medios físicos.
+
+        Los sistemas operativos almacenan en caché los datos que escribe en un archivo. 
+        Si el sistema operativo aplicara cada escritura para golpear la unidad, 
+       las cosas serían muy lentas. 
+       fsync(entre otras cosas) le permite controlar cuándo los datos deben llegar al disco.
+    
+    */
     return 0;
 }

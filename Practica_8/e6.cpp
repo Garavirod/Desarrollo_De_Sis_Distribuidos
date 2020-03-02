@@ -15,7 +15,7 @@ void incrementa(int n)
     {
         m.lock();
         variable++;
-        //printf("%d\n", variable);
+        printf("%d\n", variable);
         m.unlock();
     }
 }
@@ -26,7 +26,7 @@ void decrementa(int n)
     {
         m.lock();
         variable--;
-        //printf(" \t%d\n", variable);
+        printf(" \t%d\n", variable);
         m.unlock();
 
     }
