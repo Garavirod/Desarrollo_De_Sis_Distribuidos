@@ -3,7 +3,7 @@ import random
 cadenota = ""
 cad = ""
 
-for i in range(0,100000): #5
+for i in range(0,200000): #5
     aux = ""
     for x in range (0,3):
         cad = random.randrange(65,90)
