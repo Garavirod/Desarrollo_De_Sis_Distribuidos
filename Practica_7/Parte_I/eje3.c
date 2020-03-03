@@ -10,7 +10,7 @@ int main() {
     char ipn [4] = "IPN";
     long i = 0, j = 0, cont = 0;
     char * aux;
-    long n = 20000;
+    long n = 2000;
     srand(time(NULL));
     FILE *fp;
     fp = fopen ( "fichero1.txt", "w" );

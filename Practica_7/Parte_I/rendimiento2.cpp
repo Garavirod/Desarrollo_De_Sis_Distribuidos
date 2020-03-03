@@ -5,7 +5,7 @@
 #include "renidmiento.h"
 using namespace std;
 
-#define N 100000
+#define N 50000000
 
 int main(int argc, char const *argv[])
 {
