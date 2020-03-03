@@ -59,7 +59,7 @@ int main(int argc, char const *argv[])
             char c[token.size() + 1];
             strcpy(c, token.c_str());
             fputs(c, fp);
-            fputs(" ", fp);
+            fputs(" ", fp);            
         }
         fputs(" ", fp);
         fclose(fp);
