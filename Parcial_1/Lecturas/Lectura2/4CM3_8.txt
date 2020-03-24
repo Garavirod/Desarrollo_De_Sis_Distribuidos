@@ -1,0 +1,29 @@
+¿Qué medios de comunicación entre procesos ofrece la API de Java?
+A. Datagramas y Streams.
+B. Uso de buffer automáticos.
+C. Envío por cola de mensaje o referencia.
+D. Medios orientados a mensajes.
+
+Patrones de comunicación mas utilizados en los sistemas distribuidos:
+A. Comunicación Cliente-Servidor y de grupo.
+B. Comunicación Peer to Peer (P2P)
+C. Comunicación Multicast
+D. Todas las anteriores
+
+A Que se refiere RMI (Invocación de métodos remotos)
+A. Permite que un objeto invoque un mpetodo en otro objeto situado en un procedimeinto remoto.
+B. Un metodo que se ejcuta infinitamente en un servdior.
+C. Permite que los objetos sean invocados anónimamente.
+D. Permite que una función anónima se mande a llamar de manera polimorfica.
+
+¿A qué tipo de comunicación se refiere?: A cada envía se bloquea el emisor hasta que produce el correspondiente recibe y cuando se invoca un recibe, el proceso se bloquea hasta llegar el mensaje. 
+A. Sincrona bloqueante.
+B. Asincrona no bloqueante.
+C. Asincrona bloqueante.
+D. Sincrona no bloqueante.
+
+¿DNS, sobre qué protocolo está implementado?
+A. UDP
+B. HTTP
+C. TCP
+D. RARP

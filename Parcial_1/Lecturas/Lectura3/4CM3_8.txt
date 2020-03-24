@@ -1,0 +1,29 @@
+¿A que tipo de comunicación esta orienta la comunicación Cliente-Servidor?
+A.  Soportar los roles y el intercambio de mensajes de las interacciones típicas Cliente-Servidor.
+B.  Soportar la información del Cliente.
+C.  Soportar la información del Servidor.
+D.  Soportar los roles y el intercamio de mensajes de las interaciones del Servidor.
+
+En el caso normal, la comunicaión petición-respuesta es...
+A.  Síncrona, ya que el proceso cliente se bloquea hasta que llega la respuesta del servidor.
+B.  Asíncrona, ya que el proceso cliente se bloquea hasta que llega la respuesta del servidor.
+C.  Síncrona, ya que el proceso del servidor se bloquea hasta que llega la respuesta del cliente.
+D.  Asícrona, ya que el proceso del servidor se bloquea hasta que llega la respuesta del cliente.
+
+¿Para que es de utilidad la comunicaión Cliente-Servidor asíncrona?
+A. Es una alternativa que puede ser útil en situaciones donde los clientes pueden recuperar las respuestas más tarde.
+B. Es una alternativa que puede ser útil en situaciones donde el servidor puede recuperar las respuestas más tarde.
+C. Una opción más para la recuperación del servidor.
+D. Una opción más para la recuperación del cliente.
+
+¿Cuál es el trio de primitivas? del protocolo petición-respuesta
+A. hazOperacion, damePeticion, enviaRespuesta.
+B. enviaRespuesta, damePeticion, hazOperacion.
+C. hazOperacion, dameRespuesta, enviapeticion.
+D. enviaRespuesta, dameOperacion, hazPeticion.
+
+El protocolo de petición-respuesta esta diseñado especialmente para: 
+A. Garantizar la entrega.
+B. Garantizar la respuesta.
+C. Garantizar la petición.
+D. Garantizar el envio.
