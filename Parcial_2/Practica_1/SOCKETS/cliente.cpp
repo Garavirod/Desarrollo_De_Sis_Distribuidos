@@ -1,27 +1,30 @@
-#include <iostream>
-#include <stdlib.h>
-#include "SocketDatagrama.h"
 #include "PaqueteDatagrama.h"
+#include "SocketDatagrama.h"
+#include <iostream>
 
 using namespace std;
 
-int main(int argc, char*argv[]) {
+int main(int argc, char *argv[])
+{
 
-	int puerto = 7200;
-	SocketDatagrama servidor(puerto);
-	SocketDatagrama cliente(puerto);
+	if(argc < 4){
+		cout<<"MODO DE USO :"<<endl<<"./cliente <ip> <numero1> <numero2>"<<endl;
+		return -1;
 
-	// PAQUETE A MANDAR
-	char mensajeCliente[50] = "HOLA SOY ELE CLIENT";
-	char dir_ip[18] = "127.0.0.1";
-	PaqueteDatagrama datagramaClient((char *)&mensajeCliente, sizeof(mensajeCliente),(char *)dir_ip,puerto);
-
-	// PAQUETE A RECIBIR
-	char mensajeServer[50]; //Tiene esta long sus mensaje	
-	PaqueteDatagrama datagramaServer(sizeof(mensajeServer));
-
-	cliente.envia(datagramaClient);
-	cliente.recibe(datagramaServer);
+	}
 	
+	SocketDatagrama socket = SocketDatagrama(7000);
+	char* ip = argv[1];
+	int numeros[2];
+	numeros[0] = (int)*argv[2];
+	numeros[1] = (int)*argv[3];
+	PaqueteDatagrama datagrama = PaqueteDatagrama((char *) numeros, 2 * sizeof(int),ip, 7001);
+	socket.envia(&datagrama);
+
+	PaqueteDatagrama databack =  PaqueteDatagrama(sizeof(int));
+	socket.recibe(&databack);
+	int * ans = (int*)databack.obtieneDatos();
+	cout<< " Dirección " << datagrama.obtieneDireccion() << " puerto: " << datagrama.obtienePuerto() << endl;
+	cout << "Respuesta="<<(*ans) << endl;
 	return 0;
 }
