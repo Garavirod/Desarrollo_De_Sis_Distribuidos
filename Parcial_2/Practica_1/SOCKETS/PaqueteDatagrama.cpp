@@ -5,7 +5,7 @@
 PaqueteDatagrama::PaqueteDatagrama() {
 	_longitud = 0;
 }
-
+//Datagrama de envio
 PaqueteDatagrama::PaqueteDatagrama(char * datos, unsigned int longitud, char * ip, int puerto)
 	: _longitud(longitud), _puerto(puerto)
 {
@@ -13,7 +13,7 @@ PaqueteDatagrama::PaqueteDatagrama(char * datos, unsigned int longitud, char * i
 	memcpy( _datos, datos, longitud);
 	strcpy (_ip,ip);
 }
-
+//Datagrama de recibo
 PaqueteDatagrama::PaqueteDatagrama(unsigned int longitud)
 	: _longitud(longitud)
 {
