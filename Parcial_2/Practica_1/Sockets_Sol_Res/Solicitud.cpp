@@ -7,7 +7,7 @@ Solicitud::Solicitud() {
 	socketlocal = new SocketDatagrama(0);
 }
 
-char * Solicitud::doOperation(char* ip, int puerto, int operationId, char* arguments) {
+char * Solicitud::doOperation(char* ip, int puerto, int operationId, int* arguments) {
 	struct mensaje msj;
 	msj.messageType = 0;
 	msj.requestId = id;
@@ -15,26 +15,30 @@ char * Solicitud::doOperation(char* ip, int puerto, int operationId, char* argum
 	memcpy(msj.ip, ip, 16);
 	msj.puerto = puerto;
 	msj.operationId = operationId;
-	//cout << "numero: " << operationId << endl;
-	//cout << "Id operacion: " << msj.operationId << endl;
-	//cout << "ip: " << IP << endl;
-	//cout << "ip: " << msj.IP << endl;
+
+	cout << "Id operacion: " << msj.operationId << endl;
+
+	cout << "ip: " << msj.ip << endl;
 	memcpy(msj.arguments, arguments, 100);
-	//cout << "puerto: " << puerto << endl;
-	//cout << "puerto: " << msj.puerto << endl;
-	cout << "argumentos: " << arguments << endl;
-	//cout << "argumentos: " << msj.arguments << endl;
+	cout << "puerto: " << msj.puerto << endl;
+	cout << "argumentos: " << msj.arguments[1] << endl;
 
-    //Creasmo un datagrama de 'envio'
-	PaqueteDatagrama datagramaEnvio((char*) &msj, sizeof(msj), ip, puerto);
-	socketlocal->envia(&datagramaEnvio);
+	//SocketDatagrama socket(puerto);
+	PaqueteDatagrama paq((char*) &msj, sizeof(msj), ip, puerto);
+	int cont=0;
+	while (cont<5)
+	{
+		cont++;
+		socketlocal->envia(&paq);
+		PaqueteDatagrama paq1(sizeof(msj));
+		socketlocal->recibe(&paq1);
+		cout<<"Contador >: "<<cont<<endl;
 
-    //Creamos un datagrama de 'recibo'
-	PaqueteDatagrama datagramaRecibo(sizeof(msj));
-	socketlocal->recibe(&datagramaRecibo);
-
-	char* resultado;
-	resultado = datagramaRecibo.obtieneDatos();
-	cout << "Suma realizada: " << resultado << endl;
-	return resultado;
+		char* resultado;
+		resultado = paq1.obtieneDatos();
+		int r;
+		memcpy(&r,resultado,sizeof(resultado));
+		cout << "Suma en el servidor >: " << r << endl;
+		return resultado;
+	}
 }

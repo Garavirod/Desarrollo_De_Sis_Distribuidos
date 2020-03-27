@@ -3,31 +3,47 @@
 #include <cstdlib>
 #include <iostream>
 #include <string.h>
-
+#include <vector>
+#include "Respuesta.h"
 using namespace std;
 
-int main(int argc, char* argv[]){
-  //Se crea un socket para recibir informacipn en el puerto 7001
-  SocketDatagrama socket = SocketDatagrama(7001);
-	int parametros[2];
+int main(int argc, char *argv[])
+{
 
-	while(1){
-    //Se crea un datagrama de 'recibo'
-		PaqueteDatagrama datagrama = PaqueteDatagrama(2 * sizeof(int));
-		socket.recibe(&datagrama); //Se recibe el datagrama
+  if (argc < 2)
+  {
+    cout << "Modo de uso" << endl
+         << "./Servidor <puerto>" << endl;
+    return -1;
+  }
+  int a, b , p = atoi(argv[1]);
+  Respuesta respuesta(p);
 
-    //Obtenemos los datos de datagrama y los copiamos
-		memcpy(parametros, datagrama.obtieneDatos(), 2 * sizeof(int));
+  while (1)
+  {
+    struct mensaje mssgRecibido;
+    struct mensaje messgEnviar;
+    memcpy(&mssgRecibido, respuesta.getRequest(), sizeof(struct mensaje));
 
-        int num1 = parametros[0];
-        int num2 = parametros[1];
-        cout<<"Numero 1 recibido: "<<num1<<" Numero 2 recibido:"<<num2<<endl;
-        int res=num1+num2;
-        //Del dataframa recibido obtenemos, datos, puerto y direccion IP
-        cout << " Dirección " << datagrama.obtieneDireccion() <<" "<< "Puerto: " << datagrama.obtienePuerto() << endl;
-        //Creamos un datagrama de 'envio' con la respuesta, el tamaño de la respuesta, dir IP y puerto de quien envia
-        PaqueteDatagrama databack =  PaqueteDatagrama((char*) &res, sizeof(bool), datagrama.obtieneDireccion(), datagrama.obtienePuerto());
-	      socket.envia(&databack); //Enviamos el paquete de envio
+    int a = (mssgRecibido.arguments[0]);
+    int b = (mssgRecibido.arguments[1]);
+    int suma = a + b;
+
+    cout << "ID :> " << mssgRecibido.operationId << endl;
+    cout << "IP >: " << mssgRecibido.ip << endl;
+    cout << "Puerto >: "<<mssgRecibido.puerto <<endl;
+
+    if (mssgRecibido.operationId == 1)
+    {
+      cout << "La suma es >: " << suma << endl;
+      memcpy(messgEnviar.arguments, (char *)&suma, sizeof(suma));
+      messgEnviar.messageType = 1;
+      memcpy(messgEnviar.ip, mssgRecibido.ip, 16);
+      messgEnviar.puerto = mssgRecibido.puerto;
+      messgEnviar.requestId = mssgRecibido.requestId;
+      respuesta.sendReply((char *)messgEnviar.arguments, messgEnviar.ip, mssgRecibido.puerto);
+      cout << "-----------------------------------------" << endl;
     }
-    return 0;
+  }
+  return 0;
 }

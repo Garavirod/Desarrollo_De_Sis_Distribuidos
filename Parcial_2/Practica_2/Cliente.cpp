@@ -12,10 +12,9 @@ int main(int argc, char*argv[]) {
 	int operacion = 1;
 
 
-	ip =argv[1];
+	ip = argv[1];
 	puerto = atoi(argv[2]);
 	Solicitud cliente;
-
 	printf("%s\n", cliente.doOperation(ip, puerto, operacion, arreglo));
 
 	return 0;

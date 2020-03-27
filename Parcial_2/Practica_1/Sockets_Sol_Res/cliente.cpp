@@ -2,7 +2,7 @@
 #include "SocketDatagrama.h"
 #include <iostream>
 #include "Solicitud.h"
-
+#include<string.h>
 using namespace std;
 
 int main(int argc, char *argv[])
@@ -14,29 +14,14 @@ int main(int argc, char *argv[])
 
 	}
 	
-	//Creamos una conexion el puerto 7000
-	SocketDatagrama socket = SocketDatagrama(7000);
 	char *response;
 	char* ip = argv[1];
-	int puerto = (int)*argv[2];
-	char numeros[2];
-	numeros[0] = (char)*argv[3];
-	numeros[1] = (char)*argv[4];
-
+	int puerto = atoi(argv[2]);
+	int numeros[2];
+	numeros[0] = atoi(argv[3]);
+	numeros[1] = atoi(argv[4]);
 	Solicitud cli;
-	response = cli.doOperation(ip,puerto,1,numeros);
+	response = cli.doOperation(ip,puerto,1,(int*)numeros);
 	cout<<response<<endl;
-	
-	// //Creamos un paquete datagram de 'envio'
-	// PaqueteDatagrama datagrama = PaqueteDatagrama((char *) numeros, 2 * sizeof(int),ip, 7001);
-	// socket.envia(&datagrama); //Se manda el datagrama al servidor
-
-	// //Se crea un paquete datagram de 'recibo'
-	// PaqueteDatagrama databack =  PaqueteDatagrama(sizeof(int));
-	// socket.recibe(&databack); //Se recibe el datagrama de recibo
-
-	// int * ans = (int*)databack.obtieneDatos(); //Obtenemso lo datos del datagrama de recibo
-	// cout<< " Dirección " << datagrama.obtieneDireccion() << " puerto: " << datagrama.obtienePuerto() << endl;
-	// cout << "Respuesta="<<(*ans) << endl;
 	return 0;
 }

@@ -16,7 +16,7 @@ class Respuesta
 
   private:
     SocketDatagrama *socketlocal;
-    struct mensaje *palabras;
+    struct mensaje *contenido;
 };
 
 #endif
