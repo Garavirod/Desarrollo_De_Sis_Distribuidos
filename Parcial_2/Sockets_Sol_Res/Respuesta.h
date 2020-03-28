@@ -2,20 +2,21 @@
 #define __Respuesta__
 
 #include "SocketDatagrama.h"
-#include "mensaje.h"
+#include "Mensaje.h"
 
 using namespace std;
 
-class Respuesta {
-    
-public:
+class Respuesta
+{
+
+  public:
     Respuesta(int pl);
     struct mensaje *getRequest(void);
     void sendReply(char *respuesta, char *ipCliente, int puertoCliente);
-    
-private:
+
+  private:
     SocketDatagrama *socketlocal;
-    struct mensaje *palabras;
+    struct mensaje *contenido;
 };
 
 #endif
