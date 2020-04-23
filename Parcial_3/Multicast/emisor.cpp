@@ -30,7 +30,7 @@ int main(int argc, char const *argv[]){
 
     cout<<"Ingrese el primer numero :> ";cin>>numeros[0];
     cout<<"Ingrese el segundo numero :> ";cin>>numeros[1];
-    
+    cout<<endl<<endl;
     SocketMulticast socketMulticast(puerto);
     PaqueteDatagrama datagramaEnvio((char*) numeros,2 * sizeof(int),ip,puerto);
     
@@ -40,13 +40,16 @@ int main(int argc, char const *argv[]){
     PaqueteDatagrama datagramaRecibo(sizeof(int));
 
     do {
-        n = socketDatagrama.recibeTimeout(datagramaRecibo,2,500000);
+        n = socketDatagrama.recibeTimeout(datagramaRecibo,2,600000);
         if (n == -1){
             intentos--;
         } else {
-            memcpy(&resp,datagramaRecibo.obtieneDatos(),sizeof(int));
-            cout << "IP: " << datagramaRecibo.obtieneDireccion() << endl;
+            memcpy(&resp,datagramaRecibo.obtieneDatos(),sizeof(int));            
+            cout<<"***************Información recibida******************"<<endl;
+            cout << "IP: " << datagramaRecibo.obtieneDireccion() << endl;            
             cout << "Suma :" << resp << "\n" << endl;
+            cout<<"*****************************************************"<<endl;
+            cout<<endl;
         }
     }while((intentos > 0));
 
