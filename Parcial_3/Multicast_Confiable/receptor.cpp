@@ -14,10 +14,8 @@ int main(int argc, char const *argv[])
 {
     int nbd = 0;
     int monto;
-    //int num_depositos = atoi(argv[3]);
     char* ip = (char *) argv[1];
     int puerto = atoi(argv[2]);
-    //int id = atoi(argv[4]);
 
     SocketMulticast socketMulticast(puerto);
     PaqueteDatagrama paqueteDatagrama_Recepcion(sizeof(int));
@@ -31,10 +29,5 @@ int main(int argc, char const *argv[])
     }
 
     socketMulticast.salirseGrupo(ip);
-
-    //std::cout << "Cliente: \n" <<  "IP:" << paqueteDatagrama_Recepcion.obtieneDireccion();
-    //std::cout << ", Puerto: " << paqueteDatagrama_Recepcion.obtienePuerto() << "\n";
-    //std::cout << "NBD = " << nbd << std::endl;
-
     return 0;
 }

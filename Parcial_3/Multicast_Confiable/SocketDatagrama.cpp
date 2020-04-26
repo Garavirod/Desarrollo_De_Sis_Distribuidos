@@ -6,28 +6,32 @@
 #include <netinet/in.h>
 #include <netdb.h>
 #include <strings.h>
+#include <cstring>
 #include <arpa/inet.h>
 #include <unistd.h>
 #include <errno.h>
+
 
 using namespace std;
 
 SocketDatagrama::SocketDatagrama(int puerto){
     int _aux;
-    //s = socket(AF_INET, SOCK_DGRAM, 0);
-    do
+    s = socket(AF_INET, SOCK_DGRAM, 0);
+    if (s == -1)
     {
-        s = socket(AF_INET, SOCK_DGRAM, 0);
-    }while (s == -1);
+        cout << "ERROR EN SOCKET EN EL CONSTRUCTOR SOCKETDATAGRAMA" << endl;
+        cout << strerror (errno) << endl;
+    }
     bzero((char *)&direccionLocal, sizeof(direccionLocal));
     direccionLocal.sin_family = AF_INET;
     direccionLocal.sin_addr.s_addr = INADDR_ANY; //INADDR_ANY inet_addr(argv[1])
     direccionLocal.sin_port = htons(puerto);
-    //_aux = bind(s, (struct sockaddr *)&direccionLocal, sizeof(direccionLocal));
-    do
+    _aux = bind(s, (struct sockaddr *)&direccionLocal, sizeof(direccionLocal));
+    if (_aux == -1)
     {
-        _aux = bind(s, (struct sockaddr *)&direccionLocal, sizeof(direccionLocal));
-    }while (_aux == -1);
+        cout << "ERROR EN bind EN EL CONSTRUCTOR SOCKETDATAGRAMA" << endl;
+        cout << strerror (errno) << endl;
+    }
     
 }
 
@@ -42,10 +46,12 @@ int SocketDatagrama::envia(PaqueteDatagrama &paqueteDatagrama){
     direccionForanea.sin_addr.s_addr = inet_addr(paqueteDatagrama.obtieneDireccion());
     direccionForanea.sin_port = htons(paqueteDatagrama.obtienePuerto());
     int res=sendto(s, paqueteDatagrama.obtieneDatos(), paqueteDatagrama.obtieneLongitud(), 0, (struct sockaddr *)&direccionForanea, (socklen_t)client);
-    if(res<0){
-        std::cout<<"No se envio"<<std::endl;
+    if(res == -1){
+        cout<<"No se envio"<<endl;
+        return -1;
     }else{
-        std::cout<<"Se envio"<<std::endl;
+        cout<<"Se envio"<<endl;
+        return 1;
     }
 }
 
@@ -56,36 +62,53 @@ int SocketDatagrama::recibe(PaqueteDatagrama &paqueteDatagrama){
     paqueteDatagrama.inicializaPuerto(ntohs(direccionForanea.sin_port));
     
     if(n<0){
-        //std::cout<<"No se recibio"<<std::endl;
+        cout<<"No se recibio"<<endl;
     }else{
-        //std::cout<<"Se recibio"<<std::endl;
+        cout<<"Se recibio"<<endl;
     }
     return n;
 }
 
 int SocketDatagrama::recibeTimeout(PaqueteDatagrama & p, time_t segundos, suseconds_t microsegundos) {
+    
+    int n;
     int client = sizeof(direccionForanea);
     timeval.tv_sec = segundos;
     timeval.tv_usec = microsegundos;
-    setsockopt(s, SOL_SOCKET, SO_RCVTIMEO, (char *)&timeval, sizeof(timeval));
-    //int n = recibe(p);
-    int n = recvfrom(s, p.obtieneDatos(), p.obtieneLongitud(), 0, (struct sockaddr *)&direccionForanea, (socklen_t*)&client);
-    if(n<0){
-        //std::cout<<"No se recibio"<<std::endl;
-    }else{
-        //std::cout<<"Se recibio"<<std::endl;
+    
+    n = setsockopt(s, SOL_SOCKET, SO_RCVTIMEO, (char *)&timeval, sizeof(timeval));
+    if (n == -1)
+    {
+        cout << "ERROR EN SETSCOCKOPT METODO RECIBETIMEOUT" << endl;
+        cout << strerror (errno) << endl;
     }
+
+    n = recvfrom(s,p.obtieneDatos(), p.obtieneLongitud(), 0, (struct sockaddr *)&direccionForanea, (socklen_t*)&client);
+    if(n < 0){
+		if(errno == EWOULDBLOCK)
+		{
+			fprintf(stderr, "Tiempo para recepción transcurrido\n");
+			return -1;
+		}
+		else
+		{
+			fprintf(stderr, "Error en recvfrom\n");
+            return 0;
+		}
+			
+	}
+
     p.inicializaIp(inet_ntoa(direccionForanea.sin_addr));
     p.inicializaPuerto(ntohs(direccionForanea.sin_port));
+    //cout << p.obtieneDireccion() << endl;
 
-    if ( n < 0 ) {
-        if (errno == EWOULDBLOCK) {
-            //fprintf(stderr, "Tiempo para recepción transcurrido\n"); 
-        } else
-            fprintf(stderr, "Error en recvfrom\n");
-        return -1;
-    }
-
+    int *conf = (int*)p.obtieneDatos();
+    //cout << "conf:" << *conf << endl;
+    if (conf > 0)
+        return 1;
+    else
+        return -2;
+    
 }
 
 struct sockaddr_in SocketDatagrama::getDirForanea() {
