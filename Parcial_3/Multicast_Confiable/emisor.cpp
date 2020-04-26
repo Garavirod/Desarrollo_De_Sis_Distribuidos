@@ -24,7 +24,7 @@ int main(int argc, char const *argv[]){
 
     int nbd = 0;
     int resp,deposito;
-    int* aux;
+    int aux[2];
     int veces = 7,n;
 
     SocketMulticast socketMulticast(puerto);
@@ -32,8 +32,9 @@ int main(int argc, char const *argv[]){
     for(int i = 0; i < numd; i++ ){
         deposito = rand() %  9 + 1;
         cout << deposito << endl;
-        aux = &(deposito);
-        PaqueteDatagrama paqueteDatagrama_Envio((char*)aux,sizeof(int),ip,puerto);
+        aux[0] = deposito;
+        aux[1] = i;// id
+        PaqueteDatagrama paqueteDatagrama_Envio((char*)aux,2*sizeof(int),ip,puerto);
         int verificacion = socketMulticast.enviaConfiable(paqueteDatagrama_Envio,ttl,numr);
         cout << "Estamos en: " << i << endl;
         if ( verificacion == -1 ) {
