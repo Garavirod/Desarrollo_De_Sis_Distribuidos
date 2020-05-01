@@ -15,6 +15,11 @@ using namespace std;
 int main(int argc, char const *argv[]){
     //srand (time(NULL));
 
+    if(argc < 6){
+        cout<<"MODO DE USO >: ./emisor <ip> <puerto> <ttl> <depositos> <receptores>"<<endl;
+        return -1;
+    }
+
     char* ip = (char*) argv[1];
     int puerto = atoi(argv[2]);
     int t = atoi(argv[3]);

@@ -12,11 +12,17 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
+    if(argc < 3){
+        cout<<"MODO DE USO >: ./receptor <ip> <puerto>"<<endl;
+        return -1;
+    }
+
     int nbd = 0;
     int datos[2];
     char* ip = (char *) argv[1];
     int puerto = atoi(argv[2]);
     int n;
+    
 
     SocketMulticast socketMulticast(puerto);
     PaqueteDatagrama paqueteDatagrama_Recepcion(2*sizeof(int));
