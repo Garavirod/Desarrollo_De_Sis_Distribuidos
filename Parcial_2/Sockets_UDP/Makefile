@@ -1,7 +1,7 @@
 run: compile	
 compile: compile-libs
-	g++ cliente.cpp -o cliente.out PaqueteDatagrama.o SocketDatagrama.o -lpthread
-	g++ servidor.cpp -o servidor.out PaqueteDatagrama.o SocketDatagrama.o -lpthread
+	g++ cliente.cpp -o cliente PaqueteDatagrama.o SocketDatagrama.o -lpthread
+	g++ servidor.cpp -o servidor PaqueteDatagrama.o SocketDatagrama.o -lpthread
 compile-libs: 
 	g++ -c PaqueteDatagrama.cpp
 	g++ -c SocketDatagrama.cpp
