@@ -63,7 +63,7 @@ bool search(struct TrieNode *root, string key) {
 int main(int argc, char *argv[])
 {
     if (argc != 2){
-        printf("Forma de uso: %s puerto\n", argv[0]);
+        printf("Forma de uso >: ./server puerto\n");
         exit(0);
     }
     Respuesta resp(atoi(argv[1]));

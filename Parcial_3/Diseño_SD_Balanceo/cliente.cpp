@@ -56,7 +56,7 @@ void enviar(char* ip, int puerto, struct registro r, Solicitud s){
 
 int main(int argc, char *argv[]){
 	if (argc != 8){
-		printf("Forma de uso: %s ip_servidorA puertoA ip_servidorB puertoB ip_servidorC puertoC n\n", argv[0]);
+		printf("Forma de uso >: ./client ip_servidorA puertoA ip_servidorB puertoB ip_servidorC puertoC N\n");
 		exit(0);
 	}
 	srand(time(NULL));
@@ -86,17 +86,17 @@ int main(int argc, char *argv[]){
 		lastc = lastc.back();
 		int lastN = atoi(lastc.c_str());
 
-		if(0 <= lastN and lastN <= 3){
+		if(0 <= lastN and lastN <= 3){ //ENVIA AL SERVIDOR A
 			//enviar(s1Ip, s1Port, r, s);
 			thread t(enviar, s1Ip, s1Port, r, s);
 			t.detach();
 		}
-		else if(4 <= lastN and lastN <= 6){
+		else if(4 <= lastN and lastN <= 6){ //ENVIA AL SERVIDOR B
 			//enviar(s2Ip, s2Port, r, s);
 			thread t(enviar, s2Ip, s2Port, r, s);
 			t.detach();
 		}
-		else if(7 <= lastN and lastN <= 9){
+		else if(7 <= lastN and lastN <= 9){ //ENVIA AL SERVIDOR C
 			//enviar(s3Ip, s3Port, r, s);
 			thread t(enviar, s3Ip, s3Port, r, s);
 			t.detach();
